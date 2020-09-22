@@ -37,13 +37,13 @@ public class RabbitMqConfig {
             @Override
             public void confirm(CorrelationData correlationData, boolean b, String s) {
 
-//                if(!b){
+                if(!b){
                     log.info("[RabbitMq][生产者][交换机确认消息回调][错误信息:相关数据:{}]",correlationData);
                     log.info("[RabbitMq][生产者][交换机确认消息回调][错误信息:确认情况:{}]",b);
                     log.info("[RabbitMq][生产者][交换机确认消息回调][错误信息:原因:{}]",s);
 
                     throw new RuntimeException("消息发送失败:" + s);
-//                }
+                }
             }
         });
 
@@ -88,13 +88,13 @@ public class RabbitMqConfig {
             @Override
             public void confirm(CorrelationData correlationData, boolean b, String s) {
 
-//                if(!b){
+                if(!b){
                     log.info("[RabbitMq][生产者][交换机确认消息回调][错误信息:相关数据:{}]",correlationData);
                     log.info("[RabbitMq][生产者][交换机确认消息回调][错误信息:确认情况:{}]",b);
                     log.info("[RabbitMq][生产者][交换机确认消息回调][错误信息:原因:{}]",s);
 
-//                    throw new RuntimeException("消息发送失败:" + s);
-//                }
+                    throw new RuntimeException("消息发送失败:" + s);
+                }
             }
         });
 
