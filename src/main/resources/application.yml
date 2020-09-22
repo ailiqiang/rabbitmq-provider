@@ -1,0 +1,21 @@
+server:
+  port: 8899
+spring:
+  application:
+    name: rabbitmq-provider
+  #配置rabbitmq服务器
+  rabbitmq:
+    host: 101.37.169.180
+    port: 5672
+    username: ailiqiang
+    password: ailiqiang
+    virtual-host: test
+
+    #消息确认配置项
+    #必须配置该设置 才会进行确认回调
+    publisher-confirm-type: correlated
+    #确认消息发送到队列
+    publisher-returns: true
+    cache:
+      channel:
+        size: 100
