@@ -1,6 +1,8 @@
 server:
   port: 8899
 spring:
+  profiles:
+    active: dev
   application:
     name: rabbitmq-provider
   #配置rabbitmq服务器

@@ -1,0 +1,36 @@
+//package rules
+//
+//import com.xiaoai.rabbitmq.provider.drools.entity.UserInfo;
+//import com.xiaoai.rabbitmq.provider.drools.entity.QueryParam;
+//import com.xiaoai.rabbitmq.provider.drools.entity.RuleResult;
+//import com.xiaoai.rabbitmq.provider.drools.service.impl.RuleEngineServiceImpl
+//
+//global org.slf4j.Logger log
+//
+//rule "User"
+//    when
+//        $user:UserInfo(username != null && username.equals("艾李强"))
+//    then
+//        log.info("UserInfo为{}",$user);
+//end
+//
+//rule "Param"
+//    when
+//        $param:QueryParam()
+//    then
+//        log.info("Param为{}",$param);
+//    end
+//
+//rule "paramcheck1"
+//    salience 99
+//    when
+//        queryParam : QueryParam(paramId != null && paramSign.equals("+"))
+//        $rule:RuleResult()
+//    then
+//        log.info("参数:getParamId="+queryParam.getParamId()+";getParamSign="+queryParam.getParamSign());
+//        RuleEngineServiceImpl ruleEngineService = new RuleEngineServiceImpl() ;
+//        ruleEngineService.executeAddRule(queryParam);
+//        $rule.setPostCodeResult(true);
+//end
+//
+//

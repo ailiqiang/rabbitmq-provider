@@ -1,0 +1,18 @@
+package rules ;
+import com.xiaoai.rabbitmq.provider.drools.entity.QueryParam ;
+import com.xiaoai.rabbitmq.provider.drools.entity.RuleResult;
+
+global org.slf4j.Logger log
+global com.xiaoai.rabbitmq.provider.drools.service.RuleEngineService service;
+
+rule "paramcheck11"
+    salience 99
+    when
+        queryParam : QueryParam(paramId != null && paramSign.equals("+"))
+        resultParam : RuleResult()
+    then
+        log.info("参数:getParamId="+queryParam.getParamId()+";getParamSign="+queryParam.getParamSign());
+//        RuleEngineServiceImpl ruleEngineService = new RuleEngineServiceImpl() ;
+        service.executeAddRule(queryParam);
+        resultParam.setPostCodeResult(true);
+end
